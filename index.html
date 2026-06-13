@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pecel Lele Lamongan Seafood Tambelang</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --green-dark:  #1B5E20;
+      --green:       #2E7D32;
+      --green-mid:   #43A047;
+      --green-light: #E8F5E9;
+      --orange:      #E65100;
+      --orange-mid:  #F57C00;
+      --orange-light:#FFF3E0;
+      --red:         #C62828;
+      --cream:       #F9FBF9;
+      --text:        #1A2E1A;
+      --muted:       #5A7A5A;
+      --card-bg:     #FFFFFF;
+      --radius:      14px;
+      --dana:        #118EEA;
+    }
+    body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--text); min-height: 100vh; }
+
+    /* ── HEADER ── */
+    header {
+      background: linear-gradient(90deg, var(--green-dark) 0%, var(--green) 100%);
+      padding: 0 1.2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px; position: sticky; top: 0; z-index: 200;
+      box-shadow: 0 3px 18px rgba(0,0,0,.3);
+    }
+    .header-left { display: flex; align-items: center; gap: .65rem; }
+    .logo-img {
+      width: 44px; height: 44px; border-radius: 50%;
+      object-fit: cover; border: 2px solid #FFD54F;
+      background: var(--green-light);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem; flex-shrink: 0; overflow: hidden;
+    }
+    .logo-img img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+    .logo-text strong { font-family: 'Playfair Display', serif; font-size: 1rem; color: #fff; display: block; line-height:1.2; }
+    .logo-text strong span { color: #FFD54F; }
+    .logo-text small { font-size: .58rem; color: rgba(255,255,255,.6); letter-spacing: .08em; text-transform: uppercase; }
+    nav { display: flex; gap: .8rem; align-items: center; }
+    nav a { color: rgba(255,255,255,.75); text-decoration: none; font-size: .78rem; font-weight: 600; transition: color .2s; }
+    nav a:hover { color: #FFD54F; }
+    .btn-lokasi-nav {
+      background: var(--orange); color: #fff; border: none; border-radius: 8px;
+      padding: .38rem .85rem; font-size: .76rem; font-weight: 700; cursor: pointer;
+      font-family: 'DM Sans', sans-serif; display: flex; align-items: center; gap: .3rem;
+      transition: background .2s;
+    }
+    .btn-lokasi-nav:hover { background: var(--orange-mid); }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, var(--green-dark) 0%, var(--green) 55%, var(--green-mid) 100%);
+      padding: 2.2rem 1.5rem 2rem; text-align: center; position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content:''; position:absolute; inset:0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E");
+      pointer-events:none;
+    }
+    .hero-label { display:inline-block; background:var(--orange); color:#fff; font-size:.65rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; padding:.25rem .9rem; border-radius:50px; margin-bottom:.75rem; }
+    .hero h1 { font-family:'Playfair Display',serif; font-size:clamp(1.3rem,4vw,2.2rem); color:#fff; line-height:1.25; margin-bottom:.5rem; }
+    .hero h1 em { color:#FFD54F; font-style:normal; }
+    .hero p { color:rgba(255,255,255,.7); font-size:.84rem; max-width:400px; margin:0 auto 1.4rem; }
+    .hero-stats { display:flex; justify-content:center; gap:1.8rem; flex-wrap:wrap; }
+    .stat-num { font-family:'Playfair Display',serif; font-size:1.35rem; color:#FFD54F; font-weight:700; }
+    .stat-label { font-size:.65rem; color:rgba(255,255,255,.5); margin-top:.1rem; }
+
+    /* ── PAYMENT INFO BAR ── */
+    .payment-bar {
+      background: linear-gradient(90deg, #0D47A1, #1565C0);
+      padding: .6rem 1.2rem;
+      display: flex; align-items: center; justify-content: center; gap: 1.2rem;
+      flex-wrap: wrap;
+    }
+    .payment-bar-text { color: rgba(255,255,255,.8); font-size: .72rem; font-weight: 600; }
+    .payment-dana-badge {
+      background: var(--dana); color: #fff;
+      border-radius: 8px; padding: .22rem .75rem;
+      font-size: .72rem; font-weight: 700;
+      display: flex; align-items: center; gap: .35rem;
+      cursor: pointer; transition: opacity .2s;
+      border: none; font-family: 'DM Sans', sans-serif;
+    }
+    .payment-dana-badge:hover { opacity: .85; }
+
+    /* ── FILTER BAR ── */
+    .filter-bar {
+      display:flex; align-items:center; gap:.5rem;
+      padding:.8rem 1.2rem; background:#fff;
+      border-bottom:2px solid var(--green-light); flex-wrap:wrap;
+    }
+    .filter-label { font-size:.72rem; font-weight:700; color:var(--muted); }
+    .filter-btn {
+      border:2px solid var(--green); background:none; color:var(--green);
+      padding:.28rem .8rem; border-radius:50px; font-size:.72rem; font-weight:700;
+      cursor:pointer; transition:all .2s; font-family:'DM Sans',sans-serif;
+    }
+    .filter-btn:hover,.filter-btn.active { background:var(--green); color:#fff; }
+    .search-wrap { margin-left:auto; position:relative; }
+    .search-wrap input {
+      border:2px solid #ddd; background:var(--cream);
+      border-radius:50px; padding:.32rem .9rem .32rem 2rem;
+      font-size:.75rem; font-family:'DM Sans',sans-serif;
+      outline:none; width:160px; transition:border-color .2s;
+    }
+    .search-wrap input:focus { border-color:var(--green); }
+    .search-wrap::before { content:'🔍'; position:absolute; left:.6rem; top:50%; transform:translateY(-50%); font-size:.68rem; pointer-events:none; }
+
+    /* ── CART BAR ── */
+    .cart-bar {
+      display:none; align-items:center; gap:.7rem;
+      padding:.65rem 1.2rem; background:var(--orange-light);
+      border-bottom:2px solid var(--orange-mid); flex-wrap:wrap;
+    }
+    .cart-bar.visible { display:flex; }
+    .cart-bar-title { font-weight:700; color:var(--orange); font-size:.82rem; }
+    .cart-items-preview { font-size:.75rem; color:var(--text); flex:1; }
+    .btn-wa {
+      background:#25D366; color:#fff; border:none; border-radius:9px; padding:.42rem 1rem;
+      font-size:.78rem; font-weight:700; cursor:pointer; font-family:'DM Sans',sans-serif;
+      display:flex; align-items:center; gap:.3rem; transition:background .2s, transform .15s;
+    }
+    .btn-wa:hover { background:#1DA851; transform:scale(1.04); }
+    .btn-clear { background:var(--red); color:#fff; border:none; border-radius:9px; padding:.42rem .75rem; font-size:.74rem; font-weight:700; cursor:pointer; font-family:'DM Sans',sans-serif; }
+    .btn-clear:hover { background:#8B0000; }
+
+    /* ── GRID 2 KOLOM ── */
+    .grid-section { padding:1.2rem; max-width:900px; margin:0 auto; }
+    .section-header { display:flex; align-items:baseline; gap:.7rem; margin-bottom:1rem; }
+    .section-header h2 { font-family:'Playfair Display',serif; font-size:1.2rem; color:var(--green-dark); }
+    .section-header span { font-size:.75rem; color:var(--muted); }
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: .85rem;
+    }
+
+    /* ── CARD ── */
+    .card {
+      background:var(--card-bg); border-radius:var(--radius);
+      overflow:hidden; box-shadow:0 2px 10px rgba(0,0,0,.08);
+      transition:transform .22s, box-shadow .22s;
+      position:relative; border:2px solid transparent;
+    }
+    .card:hover { transform:translateY(-4px); box-shadow:0 10px 28px rgba(0,0,0,.13); }
+    .card.in-cart { border-color:var(--orange); }
+    .card-badge {
+      position:absolute; top:.55rem; left:.55rem;
+      color:#fff; font-size:.55rem; font-weight:700;
+      letter-spacing:.07em; text-transform:uppercase;
+      padding:.18rem .48rem; border-radius:50px; z-index:2;
+      background:var(--green);
+    }
+    .card-badge.hot { background:var(--red); }
+    .card-badge.new { background:var(--orange); }
+    .card-fav {
+      position:absolute; top:.55rem; right:.55rem;
+      width:25px; height:25px;
+      background:rgba(255,255,255,.88); border:none; border-radius:50%;
+      display:flex; align-items:center; justify-content:center;
+      font-size:.75rem; cursor:pointer; z-index:2;
+      transition:transform .2s; backdrop-filter:blur(4px);
+    }
+    .card-fav:hover { transform:scale(1.2); }
+    .card-img { width:100%; aspect-ratio:4/3; object-fit:cover; display:block; }
+    .card-img-placeholder {
+      width:100%; aspect-ratio:4/3;
+      background:linear-gradient(135deg, var(--green-light), #C8E6C9);
+      display:flex; flex-direction:column; align-items:center; justify-content:center; gap:.3rem;
+    }
+    .card-img-placeholder .ph-icon { font-size:1.8rem; opacity:.4; }
+    .card-img-placeholder .ph-text { font-size:.6rem; color:var(--muted); font-weight:500; }
+    .card-body { padding:.7rem; }
+    .card-category { font-size:.58rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--orange); margin-bottom:.18rem; }
+    .card-name { font-family:'Playfair Display',serif; font-size:.85rem; font-weight:700; color:var(--green-dark); line-height:1.3; margin-bottom:.22rem; }
+    .card-rating { display:flex; align-items:center; gap:.22rem; margin-bottom:.38rem; }
+    .stars { color:#F9A825; font-size:.68rem; }
+    .rating-count { font-size:.62rem; color:var(--muted); }
+    .card-desc { font-size:.68rem; color:var(--muted); line-height:1.45; margin-bottom:.65rem; }
+    .card-price-row { display:flex; align-items:center; justify-content:space-between; margin-bottom:.45rem; }
+    .card-price { font-size:.9rem; font-weight:700; color:var(--green-dark); }
+    .card-price small { font-size:.62rem; font-weight:400; color:var(--muted); text-decoration:line-through; margin-right:.15rem; }
+    .card-qty { display:flex; align-items:center; gap:.25rem; }
+    .qty-btn {
+      width:22px; height:22px; border-radius:6px;
+      border:2px solid var(--green); background:none; color:var(--green);
+      font-size:.84rem; font-weight:700; cursor:pointer;
+      display:flex; align-items:center; justify-content:center; transition:all .15s;
+    }
+    .qty-btn:hover { background:var(--green); color:#fff; }
+    .qty-val { min-width:16px; text-align:center; font-weight:700; font-size:.78rem; }
+    .card-actions { display:flex; gap:.4rem; }
+    .btn-cart {
+      flex:1; background:var(--orange); color:#fff; border:none;
+      border-radius:8px; padding:.4rem 0;
+      font-size:.7rem; font-weight:700; cursor:pointer;
+      font-family:'DM Sans',sans-serif; transition:background .2s, transform .15s;
+    }
+    .btn-cart:hover { background:var(--orange-mid); transform:scale(1.02); }
+    .btn-cart.added { background:var(--green); }
+    .btn-wa-direct {
+      background:#25D366; color:#fff; border:none;
+      border-radius:8px; padding:.4rem .6rem;
+      font-size:.8rem; cursor:pointer; font-family:'DM Sans',sans-serif;
+      transition:background .2s, transform .15s;
+      display:flex; align-items:center;
+    }
+    .btn-wa-direct:hover { background:#1DA851; transform:scale(1.05); }
+
+    /* ── MODAL OVERLAY ── */
+    .modal-overlay {
+      display:none; position:fixed; inset:0;
+      background:rgba(0,0,0,.65); z-index:500;
+      align-items:center; justify-content:center;
+      backdrop-filter:blur(3px);
+    }
+    .modal-overlay.open { display:flex; }
+
+    /* ── MODAL LOKASI ── */
+    .modal {
+      background:#fff; border-radius:20px;
+      width:min(560px, 95vw); max-height:90vh;
+      overflow:hidden; overflow-y:auto;
+      box-shadow:0 24px 60px rgba(0,0,0,.35);
+      display:flex; flex-direction:column;
+      animation:popIn .3s cubic-bezier(.34,1.56,.64,1);
+    }
+    @keyframes popIn { from{transform:scale(.85);opacity:0} to{transform:scale(1);opacity:1} }
+    .modal-header {
+      background:linear-gradient(90deg,var(--green-dark),var(--green));
+      padding:1rem 1.3rem;
+      display:flex; align-items:center; justify-content:space-between;
+      position:sticky; top:0; z-index:10;
+    }
+    .modal-header h3 { font-family:'Playfair Display',serif; color:#fff; font-size:1rem; }
+    .modal-header p { color:rgba(255,255,255,.7); font-size:.72rem; margin-top:.12rem; }
+    .modal-close {
+      background:rgba(255,255,255,.2); border:none; color:#fff;
+      width:30px; height:30px; border-radius:50%; font-size:.95rem;
+      cursor:pointer; display:flex; align-items:center; justify-content:center;
+      transition:background .2s;
+    }
+    .modal-close:hover { background:rgba(255,255,255,.35); }
+
+    /* ── FOTO SLIDER LOKASI ── */
+    .slider-wrap { position:relative; overflow:hidden; background:#111; }
+    .slider-track { display:flex; transition:transform .4s cubic-bezier(.4,0,.2,1); }
+    .slide { min-width:100%; aspect-ratio:16/9; position:relative; }
+    .slide img { width:100%; height:100%; object-fit:cover; display:block; }
+    .slide-placeholder {
+      width:100%; height:100%;
+      background:linear-gradient(135deg,#1B5E20,#2E7D32);
+      display:flex; flex-direction:column; align-items:center; justify-content:center;
+      gap:.5rem; color:rgba(255,255,255,.6);
+    }
+    .slide-placeholder .sp-icon { font-size:2.5rem; opacity:.5; }
+    .slide-placeholder .sp-text { font-size:.72rem; }
+    .slide-label {
+      position:absolute; bottom:.6rem; left:50%; transform:translateX(-50%);
+      background:rgba(0,0,0,.55); color:#fff;
+      font-size:.68rem; font-weight:600;
+      padding:.22rem .7rem; border-radius:50px;
+      backdrop-filter:blur(4px); white-space:nowrap;
+    }
+    .slider-btn {
+      position:absolute; top:50%; transform:translateY(-50%);
+      background:rgba(255,255,255,.9); border:none; width:34px; height:34px; border-radius:50%;
+      font-size:1rem; cursor:pointer; z-index:10;
+      display:flex; align-items:center; justify-content:center;
+      box-shadow:0 2px 10px rgba(0,0,0,.25); transition:background .2s, transform .2s;
+    }
+    .slider-btn:hover { background:#fff; transform:translateY(-50%) scale(1.1); }
+    .slider-btn.prev { left:.6rem; }
+    .slider-btn.next { right:.6rem; }
+    .slider-dots {
+      display:flex; justify-content:center; gap:.4rem;
+      padding:.55rem 0 .15rem; background:#fff;
+    }
+    .dot {
+      width:7px; height:7px; border-radius:50%;
+      background:#ccc; border:none; cursor:pointer;
+      transition:background .2s, transform .2s;
+    }
+    .dot.active { background:var(--green); transform:scale(1.3); }
+
+    /* ── MODAL BODY ── */
+    .modal-body { padding:1rem 1.3rem 1.3rem; }
+    .lokasi-info { margin-bottom:.85rem; }
+    .lokasi-info h4 { font-weight:700; color:var(--green-dark); font-size:.88rem; margin-bottom:.2rem; }
+    .lokasi-info p { font-size:.78rem; color:var(--muted); line-height:1.5; }
+    .btn-maps {
+      width:100%; background:linear-gradient(90deg,#1565C0,#1976D2);
+      color:#fff; border:none; border-radius:12px; padding:.8rem 1rem;
+      font-size:.85rem; font-weight:700; cursor:pointer; font-family:'DM Sans',sans-serif;
+      display:flex; align-items:center; justify-content:center; gap:.5rem;
+      transition:opacity .2s,transform .15s; text-decoration:none; margin-bottom:.75rem;
+    }
+    .btn-maps:hover { opacity:.9; transform:scale(1.02); }
+    .jam-buka {
+      background:var(--green-light); border-radius:10px;
+      padding:.55rem .85rem;
+      display:flex; align-items:center; gap:.45rem;
+      font-size:.75rem; color:var(--green-dark); font-weight:600;
+    }
+
+    /* ── MODAL DANA ── */
+    .modal-dana {
+      background:#fff; border-radius:20px;
+      width:min(400px, 92vw);
+      box-shadow:0 24px 60px rgba(0,0,0,.35);
+      animation:popIn .3s cubic-bezier(.34,1.56,.64,1);
+      overflow:hidden;
+    }
+    .dana-header {
+      background:linear-gradient(90deg, #0D47A1, var(--dana));
+      padding:1rem 1.3rem;
+      display:flex; align-items:center; justify-content:space-between;
+    }
+    .dana-header h3 { font-family:'Playfair Display',serif; color:#fff; font-size:1rem; }
+    .dana-body { padding:1.3rem; text-align:center; }
+    .dana-logo { font-size:2.5rem; margin-bottom:.5rem; }
+    .dana-number {
+      background:#EBF5FB; border:2px dashed var(--dana);
+      border-radius:12px; padding:.9rem 1.2rem;
+      font-size:1.3rem; font-weight:700; color:#0D47A1;
+      letter-spacing:.08em; margin:.6rem 0;
+      cursor:pointer; transition:background .2s;
+    }
+    .dana-number:hover { background:#D6EAF8; }
+    .dana-name { font-size:.8rem; color:var(--muted); margin-bottom:.5rem; }
+    .dana-copy-hint { font-size:.68rem; color:var(--green); font-weight:600; margin-bottom:1rem; }
+    .dana-note { font-size:.72rem; color:var(--muted); background:var(--orange-light); border-radius:8px; padding:.6rem .8rem; line-height:1.5; }
+    .btn-dana-close {
+      width:100%; margin-top:.9rem; background:var(--dana); color:#fff; border:none;
+      border-radius:10px; padding:.65rem; font-size:.82rem; font-weight:700;
+      cursor:pointer; font-family:'DM Sans',sans-serif;
+    }
+
+    /* ── FOOTER ── */
+    footer { text-align:center; padding:1.4rem; font-size:.73rem; color:var(--muted); border-top:2px solid var(--green-light); margin-top:1.8rem; }
+    footer span { color:var(--green); font-weight:700; }
+
+    @media (max-width:480px) {
+      .product-grid { grid-template-columns: repeat(2,1fr); gap:.65rem; }
+      .grid-section { padding:.85rem; }
+      .filter-bar { padding:.65rem .85rem; }
+      .search-wrap { width:100%; }
+      .search-wrap input { width:100%; }
+      nav a { display:none; }
+      .card-desc { display:none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-left">
+    <div class="logo-img">
+      <img src="assets/logo.png" alt="Logo"
+           onerror="this.parentElement.innerHTML='<span style=\'font-size:1.4rem\'>🐟</span>'">
+    </div>
+    <div class="logo-text">
+      <strong>Pecel Lele <span>Lamongan</span></strong>
+      <small>Seafood Tambelang</small>
+    </div>
+  </div>
+  <nav>
+    <a href="#">Menu</a>
+    <button class="btn-lokasi-nav" onclick="openLokasi()">📍 Lokasi</button>
+  </nav>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-label">🍽️ WARUNG SEAFOOD</div>
+  <h1>PECEL LELE <em>LAMONGAN</em><br>SEAFOOD TAMBELANG</h1>
+  <p>Lele & seafood segar khas Lamongan — pesan sekarang, langsung via WhatsApp!</p>
+  <div class="hero-stats">
+    <div class="stat"><div class="stat-num">15+</div><div class="stat-label">Menu Tersedia</div></div>
+    <div class="stat"><div class="stat-num">4.9★</div><div class="stat-label">Rating</div></div>
+    <div class="stat"><div class="stat-num">500+</div><div class="stat-label">Pelanggan Puas</div></div>
+  </div>
+</div>
+
+<!-- PAYMENT BAR -->
+<div class="payment-bar">
+  <span class="payment-bar-text">💳 Pembayaran tersedia via:</span>
+  <button class="payment-dana-badge" onclick="openDana()">
+    💙 Dana · <strong>Lihat Nomor</strong>
+  </button>
+  <span class="payment-bar-text">·</span>
+  <span class="payment-bar-text">📲 Transfer WA · COD</span>
+</div>
+
+<!-- FILTER BAR -->
+<div class="filter-bar">
+  <span class="filter-label">Kategori:</span>
+  <button class="filter-btn active" onclick="filterCards('all',this)">Semua</button>
+  <button class="filter-btn" onclick="filterCards('lele',this)">🐟 Lele</button>
+  <button class="filter-btn" onclick="filterCards('seafood',this)">🦐 Seafood</button>
+  <button class="filter-btn" onclick="filterCards('ayam',this)">🍗 Ayam</button>
+  <button class="filter-btn" onclick="filterCards('minuman',this)">🥤 Minuman</button>
+  <div class="search-wrap">
+    <input type="text" placeholder="Cari menu..." oninput="searchCards(this.value)" />
+  </div>
+</div>
+
+<!-- CART BAR -->
+<div class="cart-bar" id="cartBar">
+  <div class="cart-bar-title">🛒 Pesanan:</div>
+  <div class="cart-items-preview" id="cartPreview">—</div>
+  <button class="btn-wa" onclick="orderViaWA()">📲 Pesan via WA</button>
+  <button class="btn-clear" onclick="clearCart()">🗑</button>
+</div>
+
+<!-- GRID PRODUK -->
+<div class="grid-section">
+  <div class="section-header">
+    <h2>Menu Kami</h2>
+    <span id="count">15 menu</span>
+  </div>
+  <div class="product-grid" id="productGrid">
+
+    <!-- CARD 1 -->
+    <div class="card" data-category="lele" data-name="lele goreng crispy" data-price="Rp 17.000">
+      <span class="card-badge hot">🔥 Terlaris</span>
+      <button class="card-fav">🤍</button>
+      <img class="card-img" src="assets/gambar1.jpg" alt="Lele Goreng Crispy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="card-img-placeholder" style="display:none"><span class="ph-icon">🐟</span><span class="ph-text">gambar1.jpg</span></div>
+      <div class="card-body">
+        <div class="card-category">Lele</div>
+        <div class="card-name">Lele Goreng Crispy</div>
+        <div class="card-rating"><span class="stars">★★★★★</span><span class="rating-count">(215)</span></div>
+        <div class="card-desc">Lele segar dibalur tepung renyah, digoreng golden. Dengan sambal & lalapan.</div>
+        <div class="card-price-row">
+          <div class="card-price">Rp 17.000</div>
+          <div class="card-qty"><button class="qty-btn" onclick="changeQty(this,-1)">−</button><span class="qty-val">1</span><button class="qty-btn" onclick="changeQty(this,1)">+</button></div>
+        </div>
+        <div class="card-actions">
+          <button class="btn-cart" onclick="addToCart(this)">+ Keranjang</button>
+          <button class="btn-wa-direct" onclick="orderOneWA(this)" title="Pesan WA">📲</button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- CARD 1 -->
+    <div class="card" data-category="lele" data-name="DAFTAR MENU LEKNGKAP" data-price="DAFTAR MENU">
+      <span class="card-badge hot">🔥 Terlaris</span>
+      <button class="card-fav">🤍</button>
+      <img class="card-img" src="assets/daftar.jpg" alt="DAFTAR MENU LENGKAP" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="card-img-placeholder" style="display:none"><span class="ph-icon">🐟</span><span class="ph-text">daftar.jpg</span></div>
+      <div class="card-body">
+        <div class="card-category">DAFTER MENU LENGKAP</div>
+        <div class="card-name">DAFTAR MENU</div>
+        <div class="card-rating"><span class="stars">★★★★★</span><span class="rating-count">(215)</span></div>
+        <div class="card-desc">DAFTAR MENU LENGKAP.</div>
+        <div class="card-price-row">
+          <div class="card-price">DAFTAR MENU</div>
+          <div class="card-qty"><button class="qty-btn" onclick="changeQty(this,-1)">−</button><span class="qty-val">1</span><button class="qty-btn" onclick="changeQty(this,1)">+</button></div>
+        </div>
+        <div class="card-actions">
+          <button class="btn-cart" onclick="addToCart(this)">+ Keranjang</button>
+          <button class="btn-wa-direct" onclick="orderOneWA(this)" title="Pesan WA">📲</button>
+        </div>
+      </div>
+    </div>
+
+<!-- CARD 1 -->
+    <div class="card" data-category="lele" data-name="LALAPAN LENGKAP SAMBAL ANEKA LALAPAN DAN SAMBAL" data-price="FREE">
+      <span class="card-badge hot">🔥 Terlaris</span>
+      <button class="card-fav">🤍</button>
+      <img class="card-img" src="assets/lalap.jpg" alt="LALAPAN LENGKAP" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="card-img-placeholder" style="display:none"><span class="ph-icon">🐟</span><span class="ph-text">gambar1.jpg</span></div>
+      <div class="card-body">
+        <div class="card-category">LALAPAN LENGKAP ANEKA SAMBAL</div>
+        <div class="card-name">LALAPAN LENGKAP</div>
+        <div class="card-rating"><span class="stars">★★★★★</span><span class="rating-count">(215)</span></div>
+        <div class="card-desc">PAKET LENGKAP ANEKA SAMBAL.</div>
+        <div class="card-price-row">
+          <div class="card-price">FREE</div>
+          <div class="card-qty"><button class="qty-btn" onclick="changeQty(this,-1)">−</button><span class="qty-val">1</span><button class="qty-btn" onclick="changeQty(this,1)">+</button></div>
+        </div>
+        <div class="card-actions">
+          <button class="btn-cart" onclick="addToCart(this)">+ Keranjang</button>
+          <button class="btn-wa-direct" onclick="orderOneWA(this)" title="Pesan WA">📲</button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- CARD 2 -->
+    <div class="card" data-category="lele" data-name="lele bakar bumbu kecap" data-price="Rp 12.000">
+      <span class="card-badge new">✨ Favorit</span>
+      <button class="card-fav">🤍</button>
+      <img class="card-img" src="assets/gambar2.jpg" alt="Lele Bakar" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="card-img-placeholder" style="display:none"><span class="ph-icon">🔥</span><span class="ph-text">gambar2.jpg</span></div>
+      <div class="card-body">
+        <div class="card-category">Lele</div>
+        <div class="card-name">Lele Bakar Bumbu Kecap</div>
+        <div class="card-rating"><span class="stars">★★★★★</span><span class="rating-count">(178)</span></div>
+        <div class="card-desc">Lele bakar olesan kecap manis & rempah pilihan, aroma menggugah selera.</div>
+        <div class="card-price-row">
+          <div class="card-price">Rp 12.000</div>
+          <div class="card-qty"><button class="qty-btn" onclick="changeQty(this,-1)">−</button><span class="qty-val">1</span><button class="qty-btn" onclick="changeQty(this,1)">+</button></div>
+        </div>
+        <div class="card-actions">
+          <button class="btn-cart" onclick="addToCart(this)">+ Keranjang</button>
+          <button class="btn-wa-direct" onclick="orderOneWA(this)" title="Pesan WA">📲</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 3 -->
+    <div class="card" data-category="seafood" data-name="udang goreng tepung" data-price="Rp 30.000">
+      <span class="card-badge hot">🔥 Hits</span>
+      <button class="card-fav">🤍</button>
+      <img class="card-img" src="assets/gambar3.jpg" alt="Udang Goreng" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="card-img-placeholder" style="display:none"><span class="ph-icon">🦐</span><span class="ph-text">gambar3.jpg</span></div>
+      <div class="card-body">
+        <div class="card-category">Seafood</div>
+        <div class="card-name">Udang Goreng Tepung</div>
+        <div class="card-rating"><span class="stars">★★★★★</span><span class="rating-count">(132)</span></div>
+        <div class="card-desc">Udang jumbo segar dibalur tepung gurih renyah, cocok dengan sambal.</div>
+        <div class="card-price-row">
+          <div class="card-price"><small>Rp 30.000</small>Rp 25.000</div>
+          <div class="card-qty"><button class="qty-btn" onclick="changeQty(this,-1)">−</button><span class="qty-val">1</span><button class="qty-btn" onclick="changeQty(this,1)">+</button></div>
+        </div>
+        <div class="card-actions">
+          <button class="btn-cart" onclick="addToCart(this)">+ Keranjang</button>
+          <button class="btn-wa-direct" onclick="orderOneWA(this)" title="Pesan WA">📲</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 4 -->
+    <div class="card" data-category="seafood" data-name="cumi saus tiram" data-price="Rp 30.000">
+      <button class="card-fav">🤍</button>
+      <img class="card-img" src="assets/gambar4.jpg" alt="Cumi Saus Tiram" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="card-img-placeholder" style="display:none"><span class="ph-icon">🦑</span><span class="ph-text">gambar4.jpg</span></div>
+      <div class="card-body">
+        <div class="card-category">Seafood</div>
+        <div class="card-name">Cumi Saus Tiram</div>
+        <div class="card-rating"><span class="stars">★★★★☆</span><span class="rating-count">(89)</span></div>
+        <div class="card-desc">Cumi segar tumis saus tiram & bawang bombay, gurih dan empuk sempurna.</div>
+        <div class="card-price-row">
+          <div class="card-price">Rp 30.000</div>
+          <div class="card-qty"><button class="qty-btn" onclick="changeQty(this,-1)">−</button><span class="qty-val">1</span><button class="qty-btn" onclick="changeQty(this,1)">+</button></div>
+        </div>
+        <div class="card-actions">
+          <button class="btn-cart" onclick="addToCart(this)">+ Keranjang</button>
+          <button class="btn-wa-direct" onclick="orderOneWA(this)" title="Pesan WA">📲</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 5 -->
+    <div class="card" data-category="seafood" data-name="kepiting asam manis" data-price="Rp 45.000">
+      <span class="card-badge new">✨ Spesial</span>
+      <button class="card-fav">🤍</button>
+      <img class="card-img" src="assets/gambar5.jpg" alt="Kepiting" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="card-img-placeholder" style="display:none"><span class="ph-icon">🦀</span><span class="ph-text">gambar5.jpg</span></div>
+      <div class="card-body">
+        <div class="card-category">Seafood</div>
+        <div class="card-name">Kepiting Asam Manis</div>
+        <div class="card-rating"><span class="stars">★★★★★</span><span class="rating-count">(74)</span></div>
+        <div class="card-desc">Kepiting segar saus asam manis spesial, dagingnya tebal dan manis alami.</div>
+        <div class="card-price-row">
+          <div class="card-price">Rp 45.000</div>
+          <div class="card-qty"><button class="qty-btn" onclick="changeQty(this,-1)">−</button><span class="qty-val">1</span><button class="qty-btn" onclick="changeQty(this,1)">+</button></div>
+        </div>
+        <div class="card-actions">
+          <button class="btn-cart" onclick="addToCart(this)">+ Keranjang</button>
+          <button class="btn-wa-direct" onclick="orderOneWA(this)" title="Pesan WA">📲</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 6 -->
+    <div class="card" data-category="ayam" data-name="ayam goreng kremes" data-price="Rp 17.000">
+      <span class="card-badge hot">🔥 Terlaris</span>
+      <button class="card-fav">🤍</button>
+      <img class="card-img" src="assets/gambar6.jpg" alt="Ayam kremes" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="card-img-placeholder" style="display:none"><span class="ph-icon">🍗</span><span class="ph-text">gambar6.jpg</span></div>
+      <div class="card-body">
+        <div class="card-category">Ayam</div>
+        <div class="card-name">Ayam Goreng kremes</div>
+        <div class="card-rating"><span class="stars">★★★★★</span><span class="rating-count">(301)</span></div>
+        <div class="card-desc">Ayam goreng kremes.</div>
+        <div class="card-price-row">
+          <div class="card-price">Rp 17.000</div>
+          <div class="card-qty"><button class="qty-btn" onclick="changeQty(this,-1)">−</button><span class="qty-val">1</span><button class="qty-btn" onclick="changeQty(this,1)">+</button></div>
+        </div>
+        <div class="card-actions">
+          <button class="btn-cart" onclick="addToCart(this)">+ Keranjang</button>
+          <button class="btn-wa-direct" onclick="orderOneWA(this)" title="Pesan WA">📲</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 7 -->
+    <div class="card" data-category="ayam" data-name="ayam bakar" data-price="Rp 15.00">
+      <button class="card-fav">🤍</button>
+      <img class="card-img" src="assets/gambar7.jpg" alt="Ayam Bakar" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="card-img-placeholder" style="display:none"><span class="ph-icon">🍖</span><span class="ph-text">gambar7.jpg</span></div>
+      <div class="card-body">
+        <div class="card-category">Ayam</div>
+        <div class="card-name">Ayam Bakar</div>
+        <div class="card-rating"><span class="stars">★★★★☆</span><span class="rating-count">(95)</span></div>
+        <div class="card-desc">Ayam bakar olesan kecqp sedap.</div>
+        <div class="card-price-row">
+          <div class="card-price">Rp 15.000</div>
+          <div class="card-qty"><button class="qty-btn" onclick="changeQty(this,-1)">−</button><span class="qty-val">1</span><button class="qty-btn" onclick="changeQty(this,1)">+</button></div>
+        </div>
+        <div class="card-actions">
+          <button class="btn-cart" onclick="addToCart(this)">+ Keranjang</button>
+          <button class="btn-wa-direct" onclick="orderOneWA(this)" title="Pesan WA">📲</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 8 -->
+    <div class="card" data-category="lele" data-name="lele saus tiram" data-price="Rp 15.000">
+      <span class="card-badge hot">🔥 Signature</span>
+      <button class="card-fav">🤍</button>
+      <img class="card-img" src="assets/gambar8.jpg" alt="lele saus tiram" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="card-img-placeholder" style="display:none"><span class="ph-icon">🍱</span><span class="ph-text">gambar8.jpg</span></div>
+      <div class="card-body">
+        <div class="card-category">Lele</div>
+        <div class="card-name">lele saus tiram</div>
+        <div class="card-rating"><span class="stars">★★★★★</span><span class="rating-count">(412)</span></div>
+        <div class="card-desc">lele saus tiram.</div>
+        <div class="card-price-row">
+          <div class="card-price"><small>Rp 15.000</small>Rp 15.000</div>
+          <div class="card-qty"><button class="qty-btn" onclick="changeQty(this,-1)">−</button><span class="qty-val">1</span><button class="qty-btn" onclick="changeQty(this,1)">+</button></div>
+        </div>
+        <div class="card-actions">
+          <button class="btn-cart" onclick="addToCart(this)">+ Keranjang</button>
+          <button class="btn-wa-direct" onclick="orderOneWA(this)" title="Pesan WA">📲</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 9 -->
+    <div class="card" data-category="seafood" data-name="kerang ijo" data-price="Rp 20.000">
+      <span class="card-badge new">✨ Baru</span>
+      <button class="card-fav">🤍</button>
+      <img class="card-img" src="assets/gambar9.jpg" alt="keramg ijo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="card-img-placeholder" style="display:none"><span class="ph-icon">🐠</span><span class="ph-text">gambar9.jpg</span></div>
+      <div class="card-body">
+        <div class="card-category">Seafood</div>
+        <div class="card-name">kerang ijo</div>
+        <div class="card-rating"><span class="stars">★★★★★</span><span class="rating-count">(63)</span></div>
+        <div class="card-desc">kerang ijo.</div>
+        <div class="card-price-row">
+          <div class="card-price">Rp 20.000</div>
+          <div class="card-qty"><button class="qty-btn" onclick="changeQty(this,-1)">−</button><span class="qty-val">1</span><button class="qty-btn" onclick="changeQty(this,1)">+</button></div>
+        </div>
+        <div class="card-actions">
+          <button class="btn-cart" onclick="addToCart(this)">+ Keranjang</button>
+          <button class="btn-wa-direct" onclick="orderOneWA(this)" title="Pesan WA">📲</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 10 -->
+    <div class="card" data-category="minuman" data-name="es teh manis " data-price="Rp 5.000">
+      <button class="card-fav">🤍</button>
+      <img class="card-img" src="assets/gambar10.jpg" alt="Es Teh" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="card-img-placeholder" style="display:none"><span class="ph-icon">🍵</span><span class="ph-text">gambar10.jpg</span></div>
+      <div class="card-body">
+        <div class="card-category">Minuman</div>
+        <div class="card-name">Es Teh Tawar Segar</div>
+        <div class="card-rating"><span class="stars">★★★★★</span><span class="rating-count">(520)</span></div>
+        <div class="card-desc">Teh segar manis!</div>
+        <div class="card-price-row">
+          <div class="card-price">Rp 5.000</div>
+          <div class="card-qty"><button class="qty-btn" onclick="changeQty(this,-1)">−</button><span class="qty-val">1</span><button class="qty-btn" onclick="changeQty(this,1)">+</button></div>
+        </div>
+        <div class="card-actions">
+          <button class="btn-cart" onclick="addToCart(this)">+ Keranjang</button>
+          <button class="btn-wa-direct" onclick="orderOneWA(this)" title="Pesan WA">📲</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 11 -->
+    <div class="card" data-category="lele" data-name="lele ladah hitam" data-price="Rp 15.000">
+      <button class="card-fav">🤍</button>
+      <img class="card-img" src="assets/gambar11.jpg" alt="Lele Penyet" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="card-img-placeholder" style="display:none"><span class="ph-icon">🐟</span><span class="ph-text">gambar11.jpg</span></div>
+      <div class="card-body">
+        <div class="card-category">Lele</div>
+        <div class="card-name">lele ladah hitam</div>
+        <div class="card-rating"><span class="stars">★★★★★</span><span class="rating-count">(148)</span></div>
+        <div class="card-desc">Lele ladah hitam.</div>
+        <div class="card-price-row">
+          <div class="card-price">Rp 15.000</div>
+          <div class="card-qty"><button class="qty-btn" onclick="changeQty(this,-1)">−</button><span class="qty-val">1</span><button class="qty-btn" onclick="changeQty(this,1)">+</button></div>
+        </div>
+        <div class="card-actions">
+          <button class="btn-cart" onclick="addToCart(this)">+ Keranjang</button>
+          <button class="btn-wa-direct" onclick="orderOneWA(this)" title="Pesan WA">📲</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 12 -->
+    <div class="card" data-category="seafood" data-name="seafood tumpah aneka seaffod paket 2 paket 1" data-price="Rp 100.000">
+      <span class="card-badge new">✨ Baru</span>
+      <button class="card-fav">🤍</button>
+      <img class="card-img" src="assets/gambar12.jpg" alt="Kerang Rebus" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="card-img-placeholder" style="display:none"><span class="ph-icon">🐚</span><span class="ph-text">gambar12.jpg</span></div>
+      <div class="card-body">
+        <div class="card-category">Seafood</div>
+        <div class="card-name">seafood tumpah aneka seaffod paket 2 paket 1</div>
+        <div class="card-rating"><span class="stars">★★★★☆</span><span class="rating-count">(57)</span></div>
+        <div class="card-desc">seafood tumpah aneka seaffod paket 2 paket 1 aneka saus.</div>
+        <div class="card-price-row">
+          <div class="card-price">Rp 100.000</div>
+          <div class="card-qty"><button class="qty-btn" onclick="changeQty(this,-1)">−</button><span class="qty-val">1</span><button class="qty-btn" onclick="changeQty(this,1)">+</button></div>
+        </div>
+        <div class="card-actions">
+          <button class="btn-cart" onclick="addToCart(this)">+ Keranjang</button>
+          <button class="btn-wa-direct" onclick="orderOneWA(this)" title="Pesan WA">📲</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 13 -->
+    <div class="card" data-category="ayam" data-name="ayam saus tiram" data-price="Rp 20.000">
+      <span class="card-badge hot">🔥 Hits</span>
+      <button class="card-fav">🤍</button>
+      <img class="card-img" src="assets/gambar13.jpg" alt="Ayam saus tiram" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="card-img-placeholder" style="display:none"><span class="ph-icon">🍗</span><span class="ph-text">gambar13.jpg</span></div>
+      <div class="card-body">
+        <div class="card-category">Ayam</div>
+        <div class="card-name">Ayam saus tiram</div>
+        <div class="card-rating"><span class="stars">★★★★★</span><span class="rating-count">(203)</span></div>
+        <div class="card-desc">Ayam saus tiram ber aneka saus.</div>
+        <div class="card-price-row">
+          <div class="card-price">Rp 20.000</div>
+          <div class="card-qty"><button class="qty-btn" onclick="changeQty(this,-1)">−</button><span class="qty-val">1</span><button class="qty-btn" onclick="changeQty(this,1)">+</button></div>
+        </div>
+        <div class="card-actions">
+          <button class="btn-cart" onclick="addToCart(this)">+ Keranjang</button>
+          <button class="btn-wa-direct" onclick="orderOneWA(this)" title="Pesan WA">📲</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 14 -->
+    <div class="card" data-category="minuman" data-name="es jeruk segar" data-price="Rp 5.000">
+      <button class="card-fav">🤍</button>
+      <img class="card-img" src="assets/gambar14.jpg" alt="Es Jeruk" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="card-img-placeholder" style="display:none"><span class="ph-icon">🍊</span><span class="ph-text">gambar14.jpg</span></div>
+      <div class="card-body">
+        <div class="card-category">Minuman</div>
+        <div class="card-name">Es Jeruk Segar</div>
+        <div class="card-rating"><span class="stars">★★★★★</span><span class="rating-count">(310)</span></div>
+        <div class="card-desc">Perasan jeruk segar peras langsung, dingin, manis asem, cocok buat makan besar.</div>
+        <div class="card-price-row">
+          <div class="card-price">Rp 5.000</div>
+          <div class="card-qty"><button class="qty-btn" onclick="changeQty(this,-1)">−</button><span class="qty-val">1</span><button class="qty-btn" onclick="changeQty(this,1)">+</button></div>
+        </div>
+        <div class="card-actions">
+          <button class="btn-cart" onclick="addToCart(this)">+ Keranjang</button>
+          <button class="btn-wa-direct" onclick="orderOneWA(this)" title="Pesan WA">📲</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 15 -->
+    <div class="card" data-category="seafood" data-name="seafood tumpah aneka seaffod paket 2" data-price="Rp 150.000">
+      <span class="card-badge new">✨ Spesial</span>
+      <button class="card-fav">🤍</button>
+      <img class="card-img" src="assets/gambar15.jpg" alt="Gurame Bakar" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="card-img-placeholder" style="display:none"><span class="ph-icon">🐟</span><span class="ph-text">gambar15.jpg</span></div>
+      <div class="card-body">
+        <div class="card-category">Seafood</div>
+        <div class="card-name">seafood tumpah aneka seaffod paket 2</div>
+        <div class="card-rating"><span class="stars">★★★★★</span><span class="rating-count">(91)</span></div>
+        <div class="card-desc">seaffod enka kerang dan udang dll.</div>
+        <div class="card-price-row">
+          <div class="card-price">Rp 150.000</div>
+          <div class="card-qty"><button class="qty-btn" onclick="changeQty(this,-1)">−</button><span class="qty-val">1</span><button class="qty-btn" onclick="changeQty(this,1)">+</button></div>
+        </div>
+        <div class="card-actions">
+          <button class="btn-cart" onclick="addToCart(this)">+ Keranjang</button>
+          <button class="btn-wa-direct" onclick="orderOneWA(this)" title="Pesan WA">📲</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  © 2026 <span>Pecel Lele Lamongan Seafood Tambelang</span> · Pesan via WhatsApp kapan saja! 🐟
+</footer>
+
+<!-- ── MODAL LOKASI ── -->
+<div class="modal-overlay" id="modalLokasi" onclick="closeLokasi(event)">
+  <div class="modal">
+    <div class="modal-header">
+      <div>
+        <h3>📍 Lokasi Kami</h3>
+        <p>Pecel Lele Lamongan Seafood Tambelang</p>
+      </div>
+      <button class="modal-close" id="closeLokasiBtn">✕</button>
+    </div>
+
+    <!-- FOTO SLIDER 4 FOTO -->
+    <div class="slider-wrap">
+      <div class="slider-track" id="sliderTrack">
+        <div class="slide">
+          <img src="assets/lokasi1.jpg" alt="Tampak Depan" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="slide-placeholder" style="display:none"><span class="sp-icon">🏪</span><span class="sp-text">assets/lokasi1.jpg</span></div>
+          <div class="slide-label">Tampak Depan</div>
+        </div>
+        <div class="slide">
+          <img src="assets/lokasi2.jpg" alt="Area Makan" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="slide-placeholder" style="display:none"><span class="sp-icon">🍽️</span><span class="sp-text">assets/lokasi2.jpg</span></div>
+          <div class="slide-label">Area Makan</div>
+        </div>
+        <div class="slide">
+          <img src="assets/lokasi3.jpg" alt="Suasana Warung" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="slide-placeholder" style="display:none"><span class="sp-icon">🌿</span><span class="sp-text">assets/lokasi3.jpg</span></div>
+          <div class="slide-label">Suasana Warung</div>
+        </div>
+        <div class="slide">
+          <img src="assets/lokasi4.jpg" alt="Dapur" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="slide-placeholder" style="display:none"><span class="sp-icon">🔥</span><span class="sp-text">assets/lokasi4.jpg</span></div>
+          <div class="slide-label">Dapur</div>
+        </div>
+      </div>
+      <button class="slider-btn prev" onclick="slideMove(-1)">‹</button>
+      <button class="slider-btn next" onclick="slideMove(1)">›</button>
+    </div>
+    <div class="slider-dots" id="sliderDots"></div>
+
+    <!-- INFO & MAPS -->
+    <div class="modal-body">
+      <div class="lokasi-info">
+        <h4>🏪 Pecel Lele Lamongan Seafood Tambelang</h4>
+        <!-- ⬇️ GANTI ALAMAT DI SINI -->
+        <p>Jl. Tambelang No. XX, Bekasi — Jawa Barat<br>
+        (Seberang masjid / patokan bisa diisi)</p>
+      </div>
+      <!-- ⬇️ GANTI LINK GOOGLE MAPS DI SINI -->
+      <a class="btn-maps" href="https://maps.app.goo.gl/YWCAgDKowSMVfi677" target="_blank">
+        🗺️ Buka di Google Maps
+      </a>
+      <div class="jam-buka">
+        🕐 Jam Buka: <strong>Setiap Hari &nbsp;3.000 JAM TUTUP 4.000 SUBUH WIB</strong>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── MODAL DANA ── -->
+<div class="modal-overlay" id="modalDana" onclick="closeDana(event)">
+  <div class="modal-dana">
+    <div class="dana-header">
+      <h3>💙 Pembayaran Dana</h3>
+      <button class="modal-close" id="closeDanaBtn">✕</button>
+    </div>
+    <div class="dana-body">
+      <div class="dana-logo">💙</div>
+      <div style="font-size:.8rem;color:var(--muted);margin-bottom:.3rem;">Nomor Dana Warung</div>
+      <!-- ⬇️ GANTI NOMOR DANA DI SINI -->
+      <div class="dana-number" onclick="copyDana(this)">0812-XXXX-XXXX</div>
+      <div class="dana-name">a.n. Pemilik Warung</div>
+      <div class="dana-copy-hint">👆 Tap nomor untuk copy</div>
+      <div class="dana-note">
+        📌 Setelah transfer, kirim bukti bayar ke WhatsApp kami ya kak 🙏<br>
+        Konfirmasi order akan dikirim setelah pembayaran diterima.
+      </div>
+      <button class="btn-dana-close" onclick="closeDanaForce()">Tutup</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // ── CONFIG — GANTI DI SINI ──
+  const WA_NUMBER = '6288290275725'; // ← nomor WA warung
+  const DANA_NUMBER = '0881011229150'; // ← nomor Dana (tampilan)
+
+  // ── SLIDER LOKASI ──
+  let slideIdx = 0;
+  const totalSlides = 4;
+
+  function buildDots() {
+    const wrap = document.getElementById('sliderDots');
+    wrap.innerHTML = '';
+    for (let i = 0; i < totalSlides; i++) {
+      const d = document.createElement('button');
+      d.className = 'dot' + (i === 0 ? ' active' : '');
+      d.onclick = () => goSlide(i);
+      wrap.appendChild(d);
+    }
+  }
+  function goSlide(idx) {
+    slideIdx = (idx + totalSlides) % totalSlides;
+    document.getElementById('sliderTrack').style.transform = `translateX(-${slideIdx * 100}%)`;
+    document.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === slideIdx));
+  }
+  function slideMove(dir) { goSlide(slideIdx + dir); }
+
+  // touch swipe
+  let touchStartX = 0;
+  document.getElementById('sliderTrack').addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, {passive:true});
+  document.getElementById('sliderTrack').addEventListener('touchend', e => {
+    const diff = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 40) slideMove(diff > 0 ? 1 : -1);
+  });
+
+  // ── MODAL LOKASI ──
+  function openLokasi() {
+    document.getElementById('modalLokasi').classList.add('open');
+    document.body.style.overflow = 'hidden';
+    buildDots(); goSlide(0);
+  }
+  function closeLokasi(e) {
+    if (e && e.target !== document.getElementById('modalLokasi')) return;
+    document.getElementById('modalLokasi').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.getElementById('closeLokasiBtn').addEventListener('click', () => {
+    document.getElementById('modalLokasi').classList.remove('open');
+    document.body.style.overflow = '';
+  });
+
+  // ── MODAL DANA ──
+  function openDana() {
+    document.getElementById('modalDana').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeDana(e) {
+    if (e && e.target !== document.getElementById('modalDana')) return;
+    document.getElementById('modalDana').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function closeDanaForce() {
+    document.getElementById('modalDana').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.getElementById('closeDanaBtn').addEventListener('click', closeDanaForce);
+
+  function copyDana(el) {
+    const num = DANA_NUMBER.replace(/[^0-9]/g, '');
+    navigator.clipboard.writeText(num).then(() => {
+      const orig = el.textContent;
+      el.textContent = '✅ Tersalin!';
+      setTimeout(() => { el.textContent = orig; }, 1500);
+    }).catch(() => {
+      el.textContent = '📋 ' + DANA_NUMBER;
+    });
+  }
+
+  // ESC tutup semua modal
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.modal-overlay.open').forEach(m => m.classList.remove('open'));
+      document.body.style.overflow = '';
+    }
+  });
+
+  // ── KERANJANG ──
+  let cart = {};
+
+  function getCardData(btn) {
+    const card = btn.closest('.card');
+    return {
+      name: card.querySelector('.card-name').textContent.trim(),
+      price: card.dataset.price,
+      qty: parseInt(card.querySelector('.qty-val').textContent)
+    };
+  }
+  function changeQty(btn, delta) {
+    const el = btn.parentElement.querySelector('.qty-val');
+    el.textContent = Math.max(1, parseInt(el.textContent) + delta);
+  }
+  function addToCart(btn) {
+    const { name, price, qty } = getCardData(btn);
+    cart[name] = { price, qty: (cart[name]?.qty || 0) + qty };
+    btn.closest('.card').classList.add('in-cart');
+    btn.textContent = '✔ Ditambah';
+    btn.classList.add('added');
+    setTimeout(() => { btn.textContent = '+ Keranjang'; btn.classList.remove('added'); }, 1500);
+    updateCartBar();
+  }
+  function updateCartBar() {
+    const bar = document.getElementById('cartBar');
+    const keys = Object.keys(cart);
+    if (!keys.length) { bar.classList.remove('visible'); return; }
+    bar.classList.add('visible');
+    document.getElementById('cartPreview').textContent = keys.map(k => `${k} x${cart[k].qty}`).join(' · ');
+  }
+  function clearCart() {
+    cart = {};
+    document.querySelectorAll('.card.in-cart').forEach(c => c.classList.remove('in-cart'));
+    updateCartBar();
+  }
+  function buildMsg(items) {
+    let msg = '🍽️ *Halo Pecel Lele Lamongan Seafood Tambelang!*\n\nSaya mau pesan:\n\n';
+    let total = 0;
+    items.forEach(({ name, price, qty }) => {
+      const h = parseInt(price.replace(/[^0-9]/g, ''));
+      total += h * qty;
+      msg += `✅ ${name} x${qty} — ${price}\n`;
+    });
+    msg += `\n💰 *Total Estimasi: Rp ${total.toLocaleString('id-ID')}*`;
+    msg += '\n\nMohon konfirmasi ketersediaan ya kak 🙏';
+    return encodeURIComponent(msg);
+  }
+  function orderViaWA() {
+    const items = Object.entries(cart).map(([name, v]) => ({ name, price: v.price, qty: v.qty }));
+    if (!items.length) return;
+    window.open(`https://wa.me/${WA_NUMBER}?text=${buildMsg(items)}`, '_blank');
+  }
+  function orderOneWA(btn) {
+    const d = getCardData(btn);
+    window.open(`https://wa.me/${WA_NUMBER}?text=${buildMsg([d])}`, '_blank');
+  }
+
+  // ── FILTER ──
+  function filterCards(cat, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    let v = 0;
+    document.querySelectorAll('.card').forEach(c => {
+      const show = cat === 'all' || c.dataset.category === cat;
+      c.style.display = show ? '' : 'none';
+      if (show) v++;
+    });
+    document.getElementById('count').textContent = v + ' menu';
+  }
+  function searchCards(q) {
+    const query = q.toLowerCase();
+    let v = 0;
+    document.querySelectorAll('.card').forEach(c => {
+      const show = c.dataset.name.includes(query);
+      c.style.display = show ? '' : 'none';
+      if (show) v++;
+    });
+    document.getElementById('count').textContent = v + ' menu';
+  }
+
+  // ── FAV ──
+  document.querySelectorAll('.card-fav').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      btn.textContent = btn.textContent === '🤍' ? '❤️' : '🤍';
+    });
+  });
+</script>
+</body>
+</html>
